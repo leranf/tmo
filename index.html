@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Accessory</title>
+    <script src="//wrap.co/widgets.js"></script>
+    <style>
+      body  {
+        width: 640px;
+        margin: 0;
+      }
+
+    </style>
+  </head>
+ 
+  <body bgcolor="white">
+
+    <img class="accessory_image" src="">
+
+    <script type="text/javascript">
+      wrap.initialize().then(function() {
+        wrap.getWrapValues().then(function(values) {
+          var param = window.location.search.slice(1);
+          var accessoryNumber = param.split('=')[1];
+          var accessoryImages = values.metadata.accessories;
+          document.querySelector('.accessory_image').src = `https:${accessoryImages[Number(accessoryNumber - 1)]}`;
+        });
+      });
+    </script>
+   
+  </body>
+</html>
